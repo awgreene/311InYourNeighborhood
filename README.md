@@ -7,16 +7,6 @@ Our solution will engage citizens by providing them the ability to collaborate i
 
 In the future, this solution could be expanded to recognize the user intent using natural language processing. The solution could use these intents to reduce duplicate complaints and better improve the solutions ability streamline the 311 submission processes.
 
-# Special Thank You
-Our team would like to thank [Start Bootstrap](http://startbootstrap.com/) for providing the [Heroic Features](http://startbootstrap.com/template-overviews/heroic-features/) template we used to build the frontend portion of our project.
-
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
-
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
-
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
 ## Source Code Setup
 
 ### 1. Requirements
@@ -49,3 +39,13 @@ Navigate to `http://localhost:7080/static/predictions.html` and hit the `Train` 
 ### 5. Reviewing the results
 
 Navigate to `http://localhost:7080/static/predictions.html` and hit the `Pull` button. This will pull the results of the predictions and display them in a table. The accuracy score will be displayed beside the Train and Pull buttons. The table will have orange rows where the prediction was inaccurate.
+
+# Special Thank You
+Our team would like to thank [Start Bootstrap](http://startbootstrap.com/) for providing the [Heroic Features](http://startbootstrap.com/template-overviews/heroic-features/) template we used to build the frontend portion of our project.
+
+Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
+
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
