@@ -5,141 +5,177 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="author" content="Alexander W. Greene">
-    <meta name="description" content="In an effort to improve transparency between the local government and its citizens, our team proposes a web solution that uses freely available open-source APIs coupled with Analyze Boston’s datasets to engage citizens and streamline 311 requests.">
+<meta charset="utf-8">
+<meta name="author" content="Alexander W. Greene">
+<meta name="description"
+	content="In an effort to improve transparency between the local government and its citizens, our team proposes a web solution that uses freely available open-source APIs coupled with Analyze Boston’s datasets to engage citizens and streamline 311 requests.">
 
-    <title>311IYN</title>
+<title>311IYN</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/heroic-features.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="css/heroic-features.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Home</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="services.html">Services</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                    <li>
-                        <a href="#">Predictions</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Jumbotron Header -->
-        <header class="jumbotron hero-spacer">
-           <div class="container">
-		<div class="row">
-			<p class="lead">311InYourNeighborhood</p>
-			<div class="col-sm-6">
-				<button type="button" onclick="train()"
-					class="btn btn-primary btn-primary">
-					<span class="glyphicon glyphicon-fire"></span> Train
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
 				</button>
+				<a class="navbar-brand" href="index.html">Home</a>
 			</div>
-			<div class="col-sm-6">
-				<button type="button" onclick="pull()"
-					class="btn btn-primary btn-primary">
-					<span class="glyphicon glyphicon-fire"></span> Pull
-				</button>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="services.html">Services</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="#">Predictions</a></li>
+				</ul>
 			</div>
+			<!-- /.navbar-collapse -->
 		</div>
-<hr/>
-		<div class="row">
-			<table class="table table-responsive">
-				<thead>
-					<tr>
-						<th>CASE_ENQUIRY_ID</th>
-						<th>Prediction</th>
-						<th>Original Value</th>
-					</tr>
-				</thead>
-				<tbody id="predBody">
+		<!-- /.container -->
+	</nav>
 
-				</tbody>
-			</table>
+	<!-- Page Content -->
+	<div class="container">
+
+		<!-- Jumbotron Header -->
+		<header class="jumbotron hero-spacer">
+			<div class="container">
+				<div class="row">
+					<p class="lead">311InYourNeighborhood</p>
+					<div class="col-sm-4">
+						<button type="button" onclick="train()"
+							class="btn btn-primary btn-primary">
+							<span class="glyphicon glyphicon-fire"></span> Train
+						</button>
+					</div>
+					<div class="col-sm-4">
+						<button type="button" onclick="pull()"
+							class="btn btn-primary btn-primary">
+							<span class="glyphicon glyphicon-fire"></span> Pull
+						</button>
+					</div>
+					<div class="col-sm-4">
+						<p id="accuracy"></p>
+					</div>
+				</div>
+				<hr />
+				<div class="row">
+					<table id="311Table" class="table table-responsive">
+						<thead>
+							<tr>
+								<th>CASE_ENQUIRY_ID</th>
+								<th>Prediction</th>
+								<th>Original Value</th>
+							</tr>
+						</thead>
+						<tbody id="predBody">
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</header>
+
+		<hr>
+
+		<!-- Highlights -->
+		<div class="row text-left">
+			<h1>Contact Information</h1>
+			<p>Questions? Comments? We are always glad to hear from you!
+				Please feel free to reach out to us through the following
+				communication channels:</p>
+			<ul>
+				<li>Email: email@gov.com</li>
+				<li>Telephone: (111) 111-1111</li>
+				<ul>
 		</div>
+
+		<hr>
+
+		<!-- Footer -->
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Copyright &copy; 311 In Your Neighborhood</p>
+				</div>
+			</div>
+		</footer>
+
 	</div>
-        </header>
+	<!-- /.container -->
 
-        <hr>
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
 
-        <!-- Highlights -->
-        <div class="row text-left">
-            <h1>Contact Information</h1>
-            <p>Questions? Comments? We are always glad to hear from you! Please feel free to reach out to us through the following communication channels:</p>
-            <ul>
-                <li>Email: email@gov.com</li>
-                <li>Telephone: (111) 111-1111</li>
-            <ul>
-        </div>
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; 311 In Your Neighborhood</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
 
 </body>
 
 <script>
+$(document)
+.ready(
+		function() {
+			$("#311Table").hide();
+			
+		});
 		function pull() {
 
 			$.ajax({
 				method : "POST",
 				url : "./api/pull",
-				contentType : "application/json"
-			}).done(function(data) {
-				console.log(data);
-				alert(data);
-				$('#response').html(data);
+				contentType : "application/json",
+	            success: function(response) {
+	            	accObject = JSON.parse(response);
+	            	console.log(accObject);
+	            	document
+					.getElementById("accuracy").innerHTML = accObject["Accuracy"]*100+"% Accuracy";
+	                fillTable(accObject["TableData"]);
+	                $("#311Table").show();
+	            },
+	            error: function(error) {
+	                console.log(error);
+	            }
 			});
 		}
 
+		function fillTable(jsonArray)
+		{
+			document
+			.getElementById("predBody").innerHTML="";
+			tabBody="";
+			for (var job of jsonArray) { 
+				if(job["Prediction"]!=job["Original"]){
+				tabBody+="<tr style=\"background-color:orange\">";
+				tabBody+="<td>"+job["CASE_ENQUIRY_ID"]+"</td>";
+				tabBody+="<td>"+job["Prediction"]+"</td>"; 
+				tabBody+="<td>"+job["Original"]+"</td>"; 
+				   tabBody+="</tr>";}
+				else{tabBody+="<tr>";
+				tabBody+="<td>"+job["CASE_ENQUIRY_ID"]+"</td>";
+				tabBody+="<td>"+job["Prediction"]+"</td>"; 
+				tabBody+="<td>"+job["Original"]+"</td>"; 
+				   tabBody+="</tr>";}
+				}
+			
+			document
+			.getElementById("predBody").innerHTML=tabBody;
+		}
 		function train() {
 
 			$.ajax({

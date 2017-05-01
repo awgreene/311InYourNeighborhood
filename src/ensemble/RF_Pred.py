@@ -15,6 +15,6 @@ def get_col_pred(col_name):
     for p, o, c in zip(col_pred, test_values, case_id):
         if p==o:
             acc=acc+1
-        jarr.append({"CASE_ENQUIRY_ID":c,"Prediction":p,"Original":o})
+        jarr.append({"CASE_ENQUIRY_ID":str(c),"Prediction":p,"Original":o})
     acc=acc/len(col_pred)
     return jarr,acc
