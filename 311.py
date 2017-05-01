@@ -9,7 +9,7 @@ port = int(os.getenv('PORT', 7080))
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('flaskIndex.html')
 
 from constants import DataConstants
 from ensemble import RF_Pred
