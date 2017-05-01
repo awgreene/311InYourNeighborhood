@@ -9,11 +9,12 @@ body {
 }
 
 .hero-spacer {
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
-.hero-feature {
-    margin-bottom: 30px;
+.static-form {
+	color:#FFF;
+	padding: 5px;
 }
 
 footer {
