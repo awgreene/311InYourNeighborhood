@@ -7,16 +7,8 @@ Our solution will engage citizens by providing them the ability to collaborate i
 
 In the future, this solution could be expanded to recognize the user intent using natural language processing. The solution could use these intents to reduce duplicate complaints and better improve the solutions ability streamline the 311 submission processes.
 
-# [Start Bootstrap](http://startbootstrap.com/) - [Heroic Features](http://startbootstrap.com/template-overviews/heroic-features/)
-
-[Heroic Features](http://startbootstrap.com/template-overviews/heroic-features/) is a multipurpose HTML template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
-
-## Getting Started
-
-To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](http://startbootstrap.com/template-overviews/heroic-features/)
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-heroic-features.git`
-* Fork the repo
+# Special Thank You
+Our team would like to thank [Start Bootstrap](http://startbootstrap.com/) for providing the [Heroic Features](http://startbootstrap.com/template-overviews/heroic-features/) template we used to build the frontend portion of our project.
 
 ## Source Code Setup
 
