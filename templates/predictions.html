@@ -100,9 +100,9 @@
             <h1>Contact Information</h1>
             <p>Questions? Comments? We are always glad to hear from you! Please feel free to reach out to us through the following communication channels:</p>
             <ul>
-                <li>Email: email@gov.com</li>
-                <li>Telephone: (111) 111-1111</li>
-            <ul>
+                <li>Email: Analyticsteam@boston.gov</li>
+                <li>Twitter: @AnalyzeBoston</li>
+            </ul>
         </div>
 
         <hr>
@@ -178,13 +178,23 @@ $(document)
 		}
 		function train() {
 
+			document
+			.getElementById("accuracy").innerHTML = 'Training...';
+			
 			$.ajax({
 				method : "POST",
 				url : "./api/train",
-				contentType : "application/json"
-			}).done(function(data) {
-				
-				$('#response').html(data);
+				contentType : "application/json",
+				async: true,
+	            success: function(response) {
+	            	
+	            	document
+					.getElementById("accuracy").innerHTML = "Training Complete";
+	               
+	            },
+	            error: function(error) {
+	                console.log(error);
+	            }
 			});
 		}
 	</script>
