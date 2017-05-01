@@ -10,6 +10,17 @@ In the future, this solution could be expanded to recognize the user intent usin
 # Special Thank You
 Our team would like to thank [Start Bootstrap](http://startbootstrap.com/) for providing the [Heroic Features](http://startbootstrap.com/template-overviews/heroic-features/) template we used to build the frontend portion of our project.
 
+Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
+
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+
+## Copyright and License
+
+Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/gh-pages/LICENSE) license.
+
 ## Source Code Setup
 
 ### 1. Requirements
@@ -42,20 +53,3 @@ Navigate to `http://localhost:7080/static/predictions.html` and hit the `Train` 
 ### 5. Reviewing the results
 
 Navigate to `http://localhost:7080/static/predictions.html` and hit the `Pull` button. This will pull the results of the predictions and display them in a table. The accuracy score will be displayed beside the Train and Pull buttons. The table will have orange rows where the prediction was inaccurate.
-
-## Bugs and Issues
-
-Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-heroic-features/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/heroic-features/).
-
-## Creator
-
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
-
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
-
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/gh-pages/LICENSE) license.
