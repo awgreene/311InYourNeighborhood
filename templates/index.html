@@ -18,16 +18,35 @@
 	<div class="container">
 		<div class="row">
 			<p class="lead">311InYourNeighborhood</p>
-			<button type="button" onclick="pull()"
-				class="btn btn-primary btn-primary">
-				<span class="glyphicon glyphicon-fire"></span> Pull
-			</button>
+			<div class="col-sm-6">
+				<button type="button" onclick="train()"
+					class="btn btn-primary btn-primary">
+					<span class="glyphicon glyphicon-fire"></span> Train
+				</button>
+			</div>
+			<div class="col-sm-6">
+				<button type="button" onclick="pull()"
+					class="btn btn-primary btn-primary">
+					<span class="glyphicon glyphicon-fire"></span> Pull
+				</button>
+			</div>
 		</div>
 
 
 
 		<div class="row">
-			<p id="response" class="lead text-center"></p>
+			<table class="table table-responsive">
+				<thead>
+					<tr>
+						<th>CASE_ENQUIRY_ID</th>
+						<th>Prediction</th>
+						<th>Original Value</th>
+					</tr>
+				</thead>
+				<tbody id="predBody">
+
+				</tbody>
+			</table>
 		</div>
 	</div>
 
@@ -47,6 +66,20 @@
 				url : "./api/pull",
 				contentType : "application/json"
 			}).done(function(data) {
+				console.log(data);
+				alert(data);
+				$('#response').html(data);
+			});
+		}
+
+		function train() {
+
+			$.ajax({
+				method : "POST",
+				url : "./api/train",
+				contentType : "application/json"
+			}).done(function(data) {
+				
 				$('#response').html(data);
 			});
 		}

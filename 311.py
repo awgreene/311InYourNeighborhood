@@ -12,10 +12,18 @@ def home():
     return render_template('index.html')
 
 from constants import DataConstants
-from pull import PullFunctions
+from ensemble import RF_Pred
+from train import ColTraining
 @app.route('/api/pull', methods=['POST'])
-def populate_ngrams():
-    return jsonify(PullFunctions.pull_from_url(DataConstants.data_url))
+def pull_results():
+    table_json,acc = RF_Pred.get_col_pred("CASE_TITLE")
+    return jsonify({"Accuracy":acc,"TableData":table_json})
 
+
+@app.route('/api/train', methods=['POST'])
+def train_col_based():
+    ColTraining.train_col_based()
+    return ("Training Complete")
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port, debug=True)
