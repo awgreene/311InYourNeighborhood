@@ -12,9 +12,13 @@ body {
     margin-top: 0px;
 }
 
-.static-form {
+.tableauPadding {
+	padding-top:50px;
+}
+
+.nav-form {
 	color:#FFF;
-	padding: 5px;
+	margin-bottom:5px;
 }
 
 footer {
