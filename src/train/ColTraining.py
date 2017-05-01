@@ -26,7 +26,7 @@ def train_col_based():
     test_values.to_csv('resources/predictions/test_values.csv')
     Xvalidate.to_csv('resources/predictions/test_data.csv')
     pred_df=pd.DataFrame()
-   
+    pred_df['CASE_ENQUIRY_ID']=Xvalidate['CASE_ENQUIRY_ID']
     for col in DataConstants.train_columns:
         if col!="CASE_ENQUIRY_ID":
             col_train = Xtrain[col]
@@ -71,7 +71,7 @@ def train_col_based():
             predictions = gridSearchClassifier.predict(col_validate)
             pred_df[col+'_pred']=predictions
             pred_df[col+'_orig']=yValidate.values
-            pred_df['CASE_ENQUIRY_ID']=Xvalidate['CASE_ENQUIRY_ID']
+            
             print ('Accuracy:', accuracy_score(yValidate, predictions))
             pickle.dump(vect,open('resources/vectorizers/'+col+'_vect.pickle','wb'))
             

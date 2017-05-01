@@ -17,11 +17,20 @@ from train import ColTraining
 @app.route('/api/pull', methods=['POST'])
 def pull_results():
     table_json,acc = RF_Pred.get_col_pred("CASE_TITLE")
-    return jsonify({"Accuracy":acc,"TableData":table_json})
+    return json.dumps({"Accuracy":acc,"TableData":table_json})
 
+@app.route('/static/api/pull', methods=['POST'])
+def static_pull_results():
+    table_json,acc = RF_Pred.get_col_pred("CASE_TITLE")
+    return json.dumps({"Accuracy":acc,"TableData":table_json})
 
 @app.route('/api/train', methods=['POST'])
 def train_col_based():
+    ColTraining.train_col_based()
+    return ("Training Complete")
+
+@app.route('/static/api/train', methods=['POST'])
+def static_train_col_based():
     ColTraining.train_col_based()
     return ("Training Complete")
     

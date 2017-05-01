@@ -57,37 +57,40 @@
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
            <div class="container">
-		<div class="row">
-			<p class="lead">311InYourNeighborhood</p>
-			<div class="col-sm-6">
-				<button type="button" onclick="train()"
-					class="btn btn-primary btn-primary">
-					<span class="glyphicon glyphicon-fire"></span> Train
-				</button>
-			</div>
-			<div class="col-sm-6">
-				<button type="button" onclick="pull()"
-					class="btn btn-primary btn-primary">
-					<span class="glyphicon glyphicon-fire"></span> Pull
-				</button>
-			</div>
-		</div>
-<hr/>
-		<div class="row">
-			<table class="table table-responsive">
-				<thead>
-					<tr>
-						<th>CASE_ENQUIRY_ID</th>
-						<th>Prediction</th>
-						<th>Original Value</th>
-					</tr>
-				</thead>
-				<tbody id="predBody">
+				<div class="row">
+					<p class="lead">311InYourNeighborhood</p>
+					<div class="col-sm-4">
+						<button type="button" onclick="train()"
+							class="btn btn-primary btn-primary">
+							<span class="glyphicon glyphicon-fire"></span> Train
+						</button>
+					</div>
+					<div class="col-sm-4">
+						<button type="button" onclick="pull()"
+							class="btn btn-primary btn-primary">
+							<span class="glyphicon glyphicon-fire"></span> Pull
+						</button>
+					</div>
+					<div class="col-sm-4">
+						<p id="accuracy"></p>
+					</div>
+				</div>
+				<hr />
+				<div class="row">
+					<table id="311Table" class="table table-responsive">
+						<thead>
+							<tr>
+								<th>CASE_ENQUIRY_ID</th>
+								<th>Prediction</th>
+								<th>Original Value</th>
+							</tr>
+						</thead>
+						<tbody id="predBody">
 
-				</tbody>
-			</table>
-		</div>
-	</div>
+						</tbody>
+					</table>
+				</div>
+			</div>
         </header>
 
         <hr>
@@ -125,19 +128,54 @@
 </body>
 
 <script>
+$(document)
+.ready(
+		function() {
+			$("#311Table").hide();
+			
+		});
 		function pull() {
 
 			$.ajax({
 				method : "POST",
 				url : "./api/pull",
-				contentType : "application/json"
-			}).done(function(data) {
-				console.log(data);
-				alert(data);
-				$('#response').html(data);
+				contentType : "application/json",
+	            success: function(response) {
+	            	accObject = JSON.parse(response);
+	            	console.log(accObject);
+	            	document
+					.getElementById("accuracy").innerHTML = accObject["Accuracy"]*100+"% Accuracy";
+	                fillTable(accObject["TableData"]);
+	                $("#311Table").show();
+	            },
+	            error: function(error) {
+	                console.log(error);
+	            }
 			});
 		}
 
+		function fillTable(jsonArray)
+		{
+			document
+			.getElementById("predBody").innerHTML="";
+			tabBody="";
+			for (var job of jsonArray) { 
+				if(job["Prediction"]!=job["Original"]){
+				tabBody+="<tr style=\"background-color:orange\">";
+				tabBody+="<td>"+job["CASE_ENQUIRY_ID"]+"</td>";
+				tabBody+="<td>"+job["Prediction"]+"</td>"; 
+				tabBody+="<td>"+job["Original"]+"</td>"; 
+				   tabBody+="</tr>";}
+				else{tabBody+="<tr>";
+				tabBody+="<td>"+job["CASE_ENQUIRY_ID"]+"</td>";
+				tabBody+="<td>"+job["Prediction"]+"</td>"; 
+				tabBody+="<td>"+job["Original"]+"</td>"; 
+				   tabBody+="</tr>";}
+				}
+			
+			document
+			.getElementById("predBody").innerHTML=tabBody;
+		}
 		function train() {
 
 			$.ajax({
