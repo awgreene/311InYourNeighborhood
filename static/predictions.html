@@ -129,11 +129,15 @@ $(document)
 				method : "POST",
 				url : "./api/pull",
 				contentType : "application/json",
+				data : JSON.stringify({
+					prefixText : document
+					.getElementById("accuracy").innerHTML
+				}),
 	            success: function(response) {
 	            	accObject = JSON.parse(response);
 	            	console.log(accObject);
 	            	document
-					.getElementById("accuracy").innerHTML = accObject["Accuracy"]*100+"% Accuracy";
+					.getElementById("accuracy").innerHTML = accObject["Accuracy"]*100+"% Accuracy by using "+accObject["MVP"];
 	                fillTable(accObject["TableData"]);
 	                $("#311Table").show();
 	            },
@@ -169,13 +173,16 @@ $(document)
 
 			//$("#accuracy").html('<img src="images/training.gif" />');
 			$("#accuracy").html('Training...');
+			document
+			.getElementById("predBody").innerHTML="";
 			$.ajax({
 				method : "POST",
 				url : "./api/train",
 				contentType : "application/json"
 				
 			}).done(function(data) {
-				$("#accuracy").html('Training Complete');
+				console.log(data);
+				$("#accuracy").html(data);
 			});
 		}
 	</script>

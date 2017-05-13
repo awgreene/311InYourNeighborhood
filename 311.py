@@ -16,23 +16,25 @@ from ensemble import RF_Pred
 from train import ColTraining
 @app.route('/api/pull', methods=['POST'])
 def pull_results():
-    table_json,acc = RF_Pred.get_col_pred("CASE_TITLE")
-    return json.dumps({"Accuracy":acc,"TableData":table_json})
+    mvp=request.json['prefixText'].replace('Training Complete. Most important column is ','')
+    table_json,acc = RF_Pred.get_col_pred(mvp)
+    return json.dumps({"Accuracy":acc,"TableData":table_json,"MVP":mvp})
 
 @app.route('/static/api/pull', methods=['POST'])
 def static_pull_results():
-    table_json,acc = RF_Pred.get_col_pred("CASE_TITLE")
-    return json.dumps({"Accuracy":acc,"TableData":table_json})
+    mvp=request.json['prefixText'].replace('Training Complete. Most important column is ','')
+    table_json,acc = RF_Pred.get_col_pred(mvp)
+    return json.dumps({"Accuracy":acc,"TableData":table_json,"MVP":mvp})
 
 @app.route('/api/train', methods=['POST'])
 def train_col_based():
-    ColTraining.train_col_based()
-    return ("Training Complete")
+    most_valuable_col=ColTraining.train_col_based()
+    return ("Training Complete. Most important column is "+most_valuable_col)
 
 @app.route('/static/api/train', methods=['POST'])
 def static_train_col_based():
-    ColTraining.train_col_based()
-    return ("Training Complete")
+    most_valuable_col=ColTraining.train_col_based()
+    return ("Training Complete. Most important column is "+most_valuable_col)
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port, debug=True)
